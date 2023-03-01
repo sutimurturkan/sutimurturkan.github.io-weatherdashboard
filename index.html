@@ -31,20 +31,41 @@
                       <button class="btn btn-secondary my-2 my-sm-0" id="search-button" type="submit">
                         <i class="fas fa-search"></i>
                       </button>
-                        </div>
+                      <div class="card mt-5" id="recent-searches">
+                        <div class="card-header">Recent Searches</div>
+                        <ul class="list-group list-group-flush" id="recent-searches-list"></ul> 
+                         <button class='clear'>Clear History</button>
+                      </div>
                     </div>
-                    <!-- Recent Searches List -->
-                    <div class="list-group" id="recent-searches-list">
-                      </div>                    
+                  </div>
+              </div>
+              <!-- Weather Info-->
+              <section id="weather-info" class="col-lg-9">
+                <div class="jumbotron bg-dark text-light" id="city-info">
+                  <h1 class="display-5 mb-4 font-weight-bold"><span id="city-name"></span> <span id="date-today"></span> <img
+                      id="weather-icon" /></h1>
+                  <p class="lead">
+                    Temperature: <span id="temperature"></span id="temperature">
+                  </p>
+                  <p class="lead">
+                    Humidity: <span id="humidity"></span>
+                  </p>
+                  <p class="lead">
+                    Wind Speed: <span id="wind-speed"></span>
+                  </p>
+                  <p class="lead">
+                    UV Index: <span id="uv-index"></span>
+                  </p>
                 </div>
-                <!-- Weather Information -->
-                <div class="col-9">
-                    <div class="card" style="width: 100%;" id="weatherContainer"></div>
-                      <div id="forecastContainer"></div>
+                <div id="forecast">
+                  <h2 class="display-lead font-weight-bold" id="forecast-title">5 Day Forecast: </h2>
+                  <div class="row m-auto" id="city-week-forecast">
+                    
+                  </div>
                 </div>
-        </div>
+              </section>
+          </div>
       </div>
-      
    <script src="script.js"></script>
 </body>
 </html>
