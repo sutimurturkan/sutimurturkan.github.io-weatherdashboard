@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/jass.css" />
   </head>
+
   <body>
     <header>
-      <h1>Weather Dashboard</h1>
-      <div class="search-box">
-        <input type="text" id="search" placeholder="Search for a city">
-        <button type="submit" id="submit"><i class="fas fa-search"></i></button>
+      <div class="container">
+        <h1>Weather Dashboard</h1>
+        <form id="search-form">
+          <input type="text" id="search-input" placeholder="Search city..." />
+          <button type="submit" id="search-button">Search</button>
+        </form>
       </div>
     </header>
-    <main>
-      <div class="cards" id="weather-cards"></div>
-    </main>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2 id="city-name"></h2>
+          <p id="current-date"></p>
+          <div id="current-weather">
+            <img id="weather-icon" src="" alt="Weather Icon" />
+            <div id="current-details">
+              <p id="temperature"></p>
+              <p id="humidity"></p>
+              <p id="wind-speed"></p>
+            </div>
+          </div>
+          <h2>5-Day Forecast</h2>
+          <div class="row" id="forecast-container"></div>
+        </div>
+
+        <div class="col-lg-4">
+          <h2>Search History</h2>
+          <ul id="search-history"></ul>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
