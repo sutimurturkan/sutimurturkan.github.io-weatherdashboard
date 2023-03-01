@@ -1,99 +1,67 @@
-// API key
 const apiKey = "d91f911bcf2c0f925fb6535547a5ddc9";
+let lat = "";
+let lon = "";
+let city = "";
 
-// Elements
-const searchForm = document.querySelector("#search-form");
-const searchInput = document.querySelector("#search-input");
-const searchBtn = document.querySelector("#search-btn");
-const cityList = document.querySelector("#city-list");
-const currentCity = document.querySelector("#current-city");
-const currentTemp = document.querySelector("#current-temp");
-const currentDesc = document.querySelector("#current-desc");
-const currentIcon = document.querySelector("#current-icon");
-const forecastTable = document.querySelector("#forecast-table");
+const weatherDiv = document.getElementById("weather");
+const searchForm = document.querySelector("form");
+const searchInput = document.getElementById("city");
 
-// Event listeners
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const city = searchInput.value.trim();
-  if (city !== "") {
-    getWeatherData(city);
-    searchInput.value = "";
-  }
+  city = searchInput.value.trim();
+  localStorage.setItem("city", city);
+  getWeatherData(city);
 });
 
-cityList.addEventListener("click", (event) => {
-  if (event.target.tagName === "LI") {
-    const city = event.target.textContent;
-    getWeatherData(city);
-  }
-});
-
-// Functions
 function getWeatherData(city) {
-  // Check localStorage for cached data
-  const cachedData = JSON.parse(localStorage.getItem(city));
-  if (cachedData && Date.now() < cachedData.expires) {
-    displayWeatherData(cachedData);
-    return;
-  }
-
-  // Fetch weather data
-  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
-  fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      const weatherData = parseWeatherData(data);
-      const expires = Date.now() + 1000 * 60 * 10; // Cache data for 10 minutes
-      localStorage.setItem(city, JSON.stringify({ weatherData, expires }));
-      displayWeatherData({ weatherData });
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      lat = data.city.coord.lat;
+      lon = data.city.coord.lon;
+      localStorage.setItem("lat", lat);
+      localStorage.setItem("lon", lon);
+      displayWeatherData(data);
     })
-    .catch((error) => {
-      console.error(error);
-      alert("Failed to fetch weather data.");
-    });
+    .catch(error => console.log(error));
 }
 
-function parseWeatherData(data) {
-  const city = data.city.name;
-  const weatherData = {
-    current: {
-      temp: kelvinToCelsius(data.list[0].main.temp),
-      desc: data.list[0].weather[0].description,
-      icon: data.list[0].weather[0].icon,
-    },
-    forecast: [],
-  };
-  for (let i = 1; i < data.list.length; i += 8) {
-    const date = new Date(data.list[i].dt_txt);
-    const forecastData = {
-      date: date.toLocaleDateString(),
-      temp: kelvinToCelsius(data.list[i].main.temp),
-      desc: data.list[i].weather[0].description,
-      icon: data.list[i].weather[0].icon,
-    };
-    weatherData.forecast.push(forecastData);
-  }
-  return { city, ...weatherData };
-}
+function displayWeatherData(data) {
+  weatherDiv.innerHTML = "";
+  const forecasts = data.list.filter(item => item.dt_txt.includes("12:00:00"));
+  forecasts.forEach(forecast => {
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
 
-function displayWeatherData({ city, current, forecast }) {
-  // Current weather
-  currentCity.textContent = city;
-  currentTemp.textContent = `${current.temp}°C`;
-  currentDesc.textContent = current.desc;
-  currentIcon.src = `http://openweathermap.org/img/w/${current.icon}.png`;
+    const date = new Date(forecast.dt * 1000);
+    const options = { weekday: "short", month: "short", day: "numeric" };
+    const dateString = date.toLocaleDateString("en-US", options);
 
-  // Forecast
-  let forecastHtml = "";
-  forecast.forEach((data) => {
-    forecastHtml += `
-      <tr>
-        <td>${data.date}</td>
-        <td>${data.temp}°C</td>
-        <td>${data.desc}</td>
-        <td><img src="http://openweathermap.org/img/w/${data.icon}.png" alt="${data.desc}"></td>
-      </tr>
+    const iconUrl = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
+    const description = forecast.weather[0].description;
+
+    const temperature = Math.round(forecast.main.temp - 273.15);
+    const humidity = forecast.main.humidity;
+    const windSpeed = Math.round(forecast.wind.speed * 3.6);
+
+    cardDiv.innerHTML = `
+      <h2>${dateString}</h2>
+      <img src="${iconUrl}" alt="${description}">
+      <p>${description}</p>
+      <p>Temperature: ${temperature}°C</p>
+      <p>Humidity: ${humidity}%</p>
+      <p>Wind Speed: ${windSpeed} km/h</p>
     `;
+
+    weatherDiv.appendChild(cardDiv);
   });
-  forecastTable.innerHTML = forecastHtml; 
+}
+
+if (localStorage.getItem("city") && localStorage.getItem("lat") && localStorage.getItem("lon")) {
+  city = localStorage.getItem("city");
+  lat = localStorage.getItem("lat");
+  lon = localStorage.getItem("lon");
+  getWeatherData(city);
+}
