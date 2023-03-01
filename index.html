@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="styles/jass.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="container">
+    <header>
+      <h1>Weather Dashboard</h1>
       <div class="search-box">
         <input type="text" id="search" placeholder="Search for a city">
-        <input type="submit" id="submit" value="Search">
+        <button type="submit" id="submit"><i class="fas fa-search"></i></button>
       </div>
-      <div class="weather-card" id="weather-card"></div>
-    </div>
+    </header>
+    <main>
+      <div class="cards" id="weather-cards"></div>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
