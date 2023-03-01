@@ -37,9 +37,9 @@ function getWeatherData(cityName) {
     .then(data => {
       const { lat, lon } = data[0];
       // Use the latitude and longitude to get the current weather and 5-day forecast
-      const currentWeatherPromise = fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`)
+      const currentWeatherPromise = fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
         .then(response => response.json());
-      const forecastPromise = fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`)
+      const forecastPromise = fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
         .then(response => response.json());
       return Promise.all([currentWeatherPromise, forecastPromise])
         .then(data => {
