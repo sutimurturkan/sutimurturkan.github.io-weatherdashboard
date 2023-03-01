@@ -5,14 +5,13 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <div id="app">
-      <h1>Weather Dashboard</h1>
-      <form>
-        <input type="text" id="city" placeholder="Enter city name">
-        <button type="submit">Search</button>
+    <div id="search-container">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Enter city name">
+        <button type="submit" id="search-button">Search</button>
       </form>
-      <div id="weather-info"></div>
     </div>
+    <div id="weather-container"></div>
     <script src="script.js"></script>
   </body>
 </html>
