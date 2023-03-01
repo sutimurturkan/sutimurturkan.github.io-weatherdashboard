@@ -10,6 +10,29 @@ $(document).ready(function() {
 		addToRecentSearches(city);
 	  }
 	});
+
+	// Add new city to Recent Searches list
+	var cities = [];
+  
+	function addToRecentSearches(city) {
+	  $("#recent-searches").show();
+  
+	  // Create Element
+	  var newCity = $("<li>");
+	  newCity.addClass("list-group-item");
+	  newCity.text(city);
+	  // Append to List
+	  $("#recent-searches-list").prepend(newCity);
+  
+	  var cityObj = {
+		city: city
+	  };
+  
+	  cities.push(cityObj);
+  
+	  // Save to localStorage
+	  localStorage.setItem("searches", JSON.stringify(cities));
+	}
   
 	// Onclick listener to search list items
 	$("#recent-searches-list").on("click", "li.list-group-item", function() {
@@ -150,28 +173,7 @@ $(document).ready(function() {
 	  });
 	}
   
-	// Add new city to Recent Searches list
-	var cities = [];
-  
-	function addToRecentSearches(city) {
-	  $("#recent-searches").show();
-  
-	  // Create Element
-	  var newCity = $("<li>");
-	  newCity.addClass("list-group-item");
-	  newCity.text(city);
-	  // Append to List
-	  $("#recent-searches-list").prepend(newCity);
-  
-	  var cityObj = {
-		city: city
-	  };
-  
-	  cities.push(cityObj);
-  
-	  // Save to localStorage
-	  localStorage.setItem("searches", JSON.stringify(cities));
-	}
+	
   
 	// Get Recent Searches from localStorage
 	function getRecentSearches() {
