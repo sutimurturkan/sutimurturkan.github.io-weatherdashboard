@@ -15,10 +15,11 @@
       </div>
     </div>
   
-  <div class="form-container">
+  <form id="search-form" class="form-container">
     <input type="text" id="search-input" class="form-input" placeholder="Enter a city">
-    <button type="submit" id="submit"><i class="fas fa-search"></i></button>
-  </div>
+    <button id="search-btn" class="form-btn">Search</button>
+  </form>
+  
   <div class="current-weather-container">
     <h2 class="current-weather-header">Current Weather</h2>
     <div id="current-weather" class="current-weather">
@@ -30,15 +31,19 @@
       <p id="current-weather-wind"></p>
     </div>
   </div>
+  
   <div class="search-history-container">
     <h2 class="search-history-header">Search History</h2>
     <div id="search-history" class="search-history"></div>
   </div>
+  
   <div class="forecast-container">
     <h2 class="forecast-header">5-Day Forecast</h2>
     <div id="forecast" class="forecast"></div>
   </div>
+  
   <div id="error-message" class="error-message"></div>
+  
   <script src="script.js"></script>
 </body>
 </html>
