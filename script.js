@@ -1,5 +1,5 @@
 //global variables
-var apiKey = "4e5dbe7db2b5e9c8b47fa40b691443d5"
+var apiKey = "d91f911bcf2c0f925fb6535547a5ddc9"
 var city = "atlanta"
 var currentConditions = "https://api.openweathermap.org/data/2.5/weather?appid="
 var fiveDay =
