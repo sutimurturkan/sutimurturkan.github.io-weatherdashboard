@@ -29,7 +29,7 @@ $(document).ready(function() {
 	function getCityWeather(city) {
 	  $("#city-info").show();
   
-	  var api_key = "ef9704d691706b1a922e0f0e52268d4e";
+	  var api_key = "d91f911bcf2c0f925fb6535547a5ddc9";
 	  var baseURL = `https://api.openweathermap.org/data/2.5/weather?appid=${api_key}`;
   
 	  city = city;
