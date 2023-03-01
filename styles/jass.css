@@ -1,35 +1,64 @@
-body{
-  background-image: url(https://wallpaperplay.com/walls/full/d/8/4/238893.jpg);
-  background-size: cover;
-}
-#recent-searches {
-  width: 18rem;
+body {
+  font-family: Arial, sans-serif;
 }
 
-.container {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-.list-group-item {
-  cursor: pointer;
-}
-
-.list-group-item:hover {
-  color: #2780e3;
-}
-
-h2{
-  color: white;
-  background-color: #343a40;;
+h1 {
   text-align: center;
 }
 
-#forecast-title{
-  width: 96%;
-
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.jumbotron{
-  width:96%;
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #008CBA;
+  border-radius: 4px;
+  background-color: #008CBA;
+  color: white;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #006B87;
+}
+
+#weather-info {
+  margin-top: 20px;
+  display: none;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+}
+
+.card .description {
+  font-size: 16px;
+}
+
+.card .temp {
+  font-size: 24px;
 }

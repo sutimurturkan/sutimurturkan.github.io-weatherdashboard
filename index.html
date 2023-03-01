@@ -1,65 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<html>
+  <head>
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles/jass.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Varela+Round&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-    <!-- Dashboard Header -->
-    <header
-      class="container-fluid text-center text-white bg-dark p-2 weather-header"
-    >
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="app">
       <h1>Weather Dashboard</h1>
-    </header>
-    
-    <!-- Main Body-->
-    <div class="container-fluid" style="max-width: 1400px">
-        <div class="row">
-            <div class="col-3 searchCol">
-                <h4>Search for a City:</h4>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="city" placeholder="City Name" required/>
-                    <div class="input-group-append">
-                      <button class="btn btn-secondary my-2 my-sm-0" id="search-button" type="submit">
-                        <i class="fas fa-search"></i>
-                      </button>
-                      <div class="list-group list-group-flush" id="recent-searches-list"></div>     
-                    </div>
-                  </div>
-              </div>
-              <!-- Weather Info-->
-              <section id="weather-info" class="col-lg-9">
-                <div class="jumbotron bg-dark text-light" id="city-info">
-                  <h1 class="display-5 mb-4 font-weight-bold"><span id="city-name"></span> <span id="date-today"></span> <img
-                      id="weather-icon" /></h1>
-                  <p class="lead">
-                    Temperature: <span id="temperature"></span id="temperature">
-                  </p>
-                  <p class="lead">
-                    Humidity: <span id="humidity"></span>
-                  </p>
-                  <p class="lead">
-                    Wind Speed: <span id="wind-speed"></span>
-                  </p>
-                  <p class="lead">
-                    UV Index: <span id="uv-index"></span>
-                  </p>
-                </div>
-                <div id="forecast">
-                  <h2 class="display-lead font-weight-bold" id="forecast-title">5 Day Forecast: </h2>
-                  <div class="row m-auto" id="city-week-forecast"></div>
-                </div>
-              </section>
-          </div>
-      </div>
-   <script src="script.js"></script>
-</body>
+      <form>
+        <input type="text" id="city" placeholder="Enter city name">
+        <button type="submit">Search</button>
+      </form>
+      <div id="weather-info"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
