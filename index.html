@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/jass.css">
   </head>
   <body>
     <div class="container">
-      <h1>Weather Dashboard</h1>
-      <form>
-        <input type="text" id="city" placeholder="Enter city name">
-        <button type="submit" id="search">Search</button>
-      </form>
-      <div id="weather"></div>
+      <div class="search-box">
+        <input type="text" id="search" placeholder="Search for a city">
+        <input type="submit" id="submit" value="Search">
+      </div>
+      <div class="weather-card" id="weather-card"></div>
     </div>
     <script src="script.js"></script>
   </body>
