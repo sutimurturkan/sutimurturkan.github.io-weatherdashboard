@@ -1,48 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="styles/jass.css" />
-  </head>
-
-  <body>
-    <header>
-      <div class="container">
-        <h1>Weather Dashboard</h1>
-        <form id="search-form">
-          <input type="text" id="search-input" placeholder="Search city..." />
-          <button type="submit" id="search-button">Search</button>
-        </form>
-      </div>
-    </header>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <h2 id="city-name"></h2>
-          <p id="current-date"></p>
-          <div id="current-weather">
-            <img id="weather-icon" src="" alt="Weather Icon" />
-            <div id="current-details">
-              <p id="temperature"></p>
-              <p id="humidity"></p>
-              <p id="wind-speed"></p>
-            </div>
-          </div>
-          <h2>5-Day Forecast</h2>
-          <div class="row" id="forecast-container"></div>
-        </div>
-
-        <div class="col-lg-4">
-          <h2>Search History</h2>
-          <ul id="search-history"></ul>
-        </div>
-      </div>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="styles/jass.css">
+</head>
+<body>
+  <div class="form-container">
+    <input type="text" id="search-input" class="form-input" placeholder="Enter a city">
+    <button id="search-btn" class="form-btn">Search</button>
+  </div>
+  <div class="current-weather-container">
+    <h2 class="current-weather-header">Current Weather</h2>
+    <div id="current-weather" class="current-weather">
+      <img id="current-weather-icon" src="" alt="Weather Icon">
+      <p id="current-weather-city"></p>
+      <p id="current-weather-date"></p>
+      <p id="current-weather-temp"></p>
+      <p id="current-weather-humidity"></p>
+      <p id="current-weather-wind"></p>
     </div>
-
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <div class="search-history-container">
+    <h2 class="search-history-header">Search History</h2>
+    <div id="search-history" class="search-history"></div>
+  </div>
+  <div class="forecast-container">
+    <h2 class="forecast-header">5-Day Forecast</h2>
+    <div id="forecast" class="forecast"></div>
+  </div>
+  <div id="error-message" class="error-message"></div>
+  <script src="script.js"></script>
+</body>
 </html>
