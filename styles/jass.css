@@ -16,7 +16,7 @@
 
 .form-btn {
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #10d6e4;
   border: none;
   border-radius: 5px;
   color: white;
@@ -25,7 +25,7 @@
 }
 
 .form-btn:hover {
-  background-color: #3e8e41;
+  background-color: #0e0af8;
 }
 
 /* Style for the current weather display */
