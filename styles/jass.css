@@ -1,3 +1,10 @@
+h1{
+  margin-top: -2rem;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 4rem;
+  font-weight: 600;
+}
+
 /* Style for the search form */
 .form-container {
   display: flex;
