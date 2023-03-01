@@ -1,5 +1,5 @@
 // API key
-const apiKey = "87afab2cb1586b30ede3c5f0c079cde1";
+const apiKey = "d91f911bcf2c0f925fb6535547a5ddc9";
 
 // Elements
 const searchForm = document.querySelector("#search-form");
