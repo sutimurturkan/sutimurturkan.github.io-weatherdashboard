@@ -1,5 +1,5 @@
 // API key for OpenWeatherMap
-const apiKey = 'd91f911bcf2c0f925fb6535547a5ddc9';
+const apiKey = '87afab2cb1586b30ede3c5f0c079cde1';
 
 // Query selectors for HTML elements
 const searchFormEl = document.querySelector('#search-form');
@@ -100,6 +100,6 @@ function loadFromLocalStorage() {
   });
   }
 
-  // Load the search history from localStorage on page load
+// Load the search history from localStorage on page load
 loadFromLocalStorage();
   
