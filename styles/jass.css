@@ -40,6 +40,20 @@ h2 {
   background-color: #0e0af8;
 }
 
+.clear-results {
+  padding: 10px;
+  background-color: #10d6e4;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.clear-results:hover {
+  background-color: #0e0af8;
+}
+
 /* Style for the current weather display */
 .current-weather {
   display: flex;

@@ -8,6 +8,7 @@ const searchInputEl = document.querySelector('#search-input');
 const searchHistoryEl = document.querySelector('#search-history');
 const currentWeatherEl = document.querySelector('#current-weather');
 const forecastEl = document.querySelector('#forecast');
+const clearButton = document.getElementById('clear')
 
 // Event listener for search form submission
 searchFormEl.addEventListener('submit', (event) => {
@@ -103,4 +104,11 @@ function loadFromLocalStorage() {
 
 // Load the search history from localStorage on page load
 loadFromLocalStorage();
+
+// Remove any previous results from the page
+clearButton.addEventListener("click", () => {
+  while (searchHistoryEl.firstChild){
+    searchHistoryEl.removeChild(searchHistoryEl.firstChild)
+  }
+})
   
