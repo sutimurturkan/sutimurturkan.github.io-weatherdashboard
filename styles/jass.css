@@ -1,12 +1,7 @@
-/* Style for the titles */
+/* Style for the title */
 h1{
   font-family: 'Varela Round', sans-serif;
   font-size: 4rem;
-  font-weight: 600;
-}
-
-h2 {
-  font-family: 'Varela Round', sans-serif;
   font-weight: 600;
 }
 
