@@ -107,8 +107,9 @@ loadFromLocalStorage();
 
 // Remove any previous results from the page
 clearButton.addEventListener("click", () => {
-  while (searchHistoryEl.firstChild){
-    searchHistoryEl.removeChild(searchHistoryEl.firstChild)
-  }
+  // Remove the search history from the UI
+  searchHistoryEl.innerHTML = '';
+  // Remove the search history from the local storage
+  localStorage.removeItem('searchHistory');
 })
   
