@@ -21,38 +21,12 @@
           <h2 id="form-heading" class="mt-1 h3 form-label">
             Search for a City:
           </h2>
-          <form id="search-form" class="form">
-            <div class="form-inline form-group">
-              <div class="input-group">
-                <input
-                  class="form-input weather-search"
-                  type="text"
-                  id="search-input"
-                  placeholder="San Diego"
-                  aria-labelledby="form-heading"
-                  aria-controls="today forecast"
-                />
-                <div class="input-group-append">
-                  <button
-                    type="submit"
-                    class="btn search-button"
-                    id="search-button"
-                    aria-label="submit search"
-                  >
-                    Search
-                  </button>
-                  <button
-                    type="button"
-                    class="btn clear-button"
-                    id="clear-button"
-                    aria-label="clear search history"
-                  >
-                    Clear
-                  </button>
-                  <hr class="hr weather-hr" />
-                </div>
-              </div>
-            </div>
+          <form id="search-form" class="form-container">
+            <input type="text" id="search-input" class="form-input" placeholder="Search for a city">
+            <button type="search-btn" class="form-btn">Search</button>
+          </form>
+          <form id="clear-form" class="form-container">
+            <button id="clear" class="clear-results">Clear</button>
           </form>
           
           <div class="list-group" id="search-history">
