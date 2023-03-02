@@ -72,7 +72,8 @@ h2 {
 
 /* Style for the search history */
 .search-history {
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-bottom: 20px;
 }
