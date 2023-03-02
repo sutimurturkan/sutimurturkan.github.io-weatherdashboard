@@ -65,14 +65,19 @@ function updateSearchHistory(searchQuery) {
 
 // Function to update the current weather UI with the current weather data
 function updateCurrentWeather(currentWeatherData) {
+  if (!currentWeatherData) {
+    currentWeatherEl.innerHTML = '';
+    return;
+  }
   currentWeatherEl.innerHTML = `
     <h2>${currentWeatherData.name} (${new Date().toLocaleDateString()})</h2>
-    ${currentWeatherData.weather[0].icon ? `<img src="https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png" alt="${currentWeatherData.weather[0].description}">` : ''}
+    <img src="https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png" alt="${currentWeatherData.weather[0].description}">
     <p>Temperature: ${currentWeatherData.main.temp} &deg;F</p>
     <p>Humidity: ${currentWeatherData.main.humidity}%</p>
     <p>Wind Speed: ${currentWeatherData.wind.speed} m/s</p>
   `;
 }
+
 
 
 // Function to update the forecast UI with the forecast data
@@ -113,4 +118,3 @@ clearButton.addEventListener("click", () => {
   // Remove the search history from the local storage
   localStorage.removeItem('searchHistory');
 })
-  
