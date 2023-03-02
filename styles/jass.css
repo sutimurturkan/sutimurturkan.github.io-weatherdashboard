@@ -72,7 +72,6 @@ h2 {
 
 /* Style for the search history */
 .search-history {
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;

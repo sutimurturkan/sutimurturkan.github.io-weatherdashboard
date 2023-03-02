@@ -18,10 +18,12 @@
   
     <div class="container">
       <div class="left-column">
-        <form id="search-form">
-          <input type="text" id="search-input" placeholder="Search for a city">
-          <button type="submit">Search</button>
-          <button type="button" id="clear-form">Clear History</button>
+        <form id="search-form" class="form-container">
+          <input type="text" id="search-input" class="form-input" placeholder="Search for a city">
+          <button type="search-btn" class="form-btn">Search</button>
+        </form>
+        <form id="clear-form" class="form-container">
+          <button id="clear" class="clear-results">Clear</button>
         </form>
         <ul id="search-history" class="search-history"></ul>
       </div>
