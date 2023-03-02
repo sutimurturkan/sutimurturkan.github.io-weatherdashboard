@@ -1,4 +1,8 @@
 /* Style for the titles */
+.jumbotron .container {
+  text-align: center;
+}
+
 h1{
   font-family: 'Varela Round', sans-serif;
   font-size: 4rem;
