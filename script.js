@@ -67,12 +67,13 @@ function updateSearchHistory(searchQuery) {
 function updateCurrentWeather(currentWeatherData) {
   currentWeatherEl.innerHTML = `
     <h2>${currentWeatherData.name} (${new Date().toLocaleDateString()})</h2>
-    <img src="https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png" alt="${currentWeatherData.weather[0].description}">
+    ${currentWeatherData.weather[0].icon ? `<img src="https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png" alt="${currentWeatherData.weather[0].description}">` : ''}
     <p>Temperature: ${currentWeatherData.main.temp} &deg;C</p>
     <p>Humidity: ${currentWeatherData.main.humidity}%</p>
     <p>Wind Speed: ${currentWeatherData.wind.speed} m/s</p>
   `;
 }
+
 
 // Function to update the forecast UI with the forecast data
 function updateForecast(forecastData) {
