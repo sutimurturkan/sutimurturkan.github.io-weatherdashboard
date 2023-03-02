@@ -121,6 +121,15 @@ h3 {
   height: 50px;
 }
 
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+}
+
+
 /* Style for the error message */
 .error-message {
   color: red;
