@@ -68,7 +68,7 @@ function updateCurrentWeather(currentWeatherData) {
   currentWeatherEl.innerHTML = `
     <h2>${currentWeatherData.name} (${new Date().toLocaleDateString()})</h2>
     ${currentWeatherData.weather[0].icon ? `<img src="https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png" alt="${currentWeatherData.weather[0].description}">` : ''}
-    <p>Temperature: ${currentWeatherData.main.temp} &deg;C</p>
+    <p>Temperature: ${currentWeatherData.main.temp} &deg;F</p>
     <p>Humidity: ${currentWeatherData.main.humidity}%</p>
     <p>Wind Speed: ${currentWeatherData.wind.speed} m/s</p>
   `;
@@ -81,7 +81,7 @@ function updateForecast(forecastData) {
   forecastData.forEach(item => {
   const forecastItemEl = document.createElement('div');
   forecastItemEl.classList.add('forecast-item');
-  forecastItemEl.innerHTML = `<h3>${new Date(item.dt_txt).toLocaleDateString()}</h3> <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}.png" alt="${item.weather[0].description}"> <p>Temperature: ${item.main.temp} &deg;C</p> <p>Humidity: ${item.main.humidity}%</p> <p>Wind Speed: ${item.wind.speed} m/s</p>` ;
+  forecastItemEl.innerHTML = `<h3>${new Date(item.dt_txt).toLocaleDateString()}</h3> <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}.png" alt="${item.weather[0].description}"> <p>Temperature: ${item.main.temp} &deg;F</p> <p>Humidity: ${item.main.humidity}%</p> <p>Wind Speed: ${item.wind.speed} m/s</p>` ;
   forecastEl.appendChild(forecastItemEl);
   });
   }
